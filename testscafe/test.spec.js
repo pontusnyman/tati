@@ -17,3 +17,5 @@ test.skip('', async t =>  {})
 test.skip('', async t =>  {})
 // Use standard_user and buy a product, and then logout
 test.skip('', async t =>  {})
+// BONUS: Use problem_user and see if all images render properly
+test.skip('', async t =>  {})
