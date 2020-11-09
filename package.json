@@ -1,0 +1,23 @@
+{
+  "name": "tati",
+  "version": "1.0.0",
+  "description": "Test Automation Technical Interview",
+  "main": "index.js",
+  "scripts": {
+    "test": "testcafe chrome testscafe/*spec.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pontusnyman/tati.git"
+  },
+  "keywords": [],
+  "author": "Pontus Nyman",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pontusnyman/tati/issues"
+  },
+  "homepage": "https://github.com/pontusnyman/tati#readme",
+  "devDependencies": {
+    "testcafe": "^1.9.4"
+  }
+}
