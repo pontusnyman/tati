@@ -22,8 +22,9 @@ This is a repo focused for automation engineers in this dark times when you cann
 
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+Hi there,
+under testcafe you will find a file called test.spec.js. This file contains one almost complete test that you need to correct and 4 that you need to write yourself.
+In this exmaple we are using a Javascript framework called Testcafe. And you are allowed to use Testcafes documentation [https://devexpress.github.io/testcafe/documentation/reference/] . Good luck!
 
 ### Prerequisites
 
@@ -33,7 +34,7 @@ To get a local copy up and running follow these simple example steps.
 
 1. Clone the repo
 ```sh
-git clone https://github.com/your_username_/Project-Name.git
+git clone https://github.com/pontusnyman/tati.git
 ```
 3. Install NPM packages
 ```sh
