@@ -45,6 +45,15 @@ npm test
 ```
 
 <!-- CONTRIBUTING -->
+## Next up
+
+To be able to meet different needs and positions, lets add other stuff to this project that can make it easier for you to try someones skill
+
+1. Add Cypress.io an an option
+2. Create a small game or something that can be unit-tested
+3. Github actions
+
+<!-- CONTRIBUTING -->
 ## Contributing
 
 Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
