@@ -24,7 +24,9 @@ This is a repo focused for automation engineers in this dark times when you cann
 
 Hi there,
 under testcafe you will find a file called test.spec.js. This file contains one almost complete test that you need to correct and 4 that you need to write yourself.
-In this exmaple we are using a Javascript framework called Testcafe. And you are allowed to use Testcafes documentation [https://devexpress.github.io/testcafe/documentation/reference/] . Good luck!
+In this exmaple we are using a Javascript framework called Testcafe. And you are allowed to use Testcafes documentation [https://devexpress.github.io/testcafe/documentation/reference/] .
+This testsuit should test a webshop [https://www.saucedemo.com/]. On the login page you find credentioals that you need to use to complete all tests.
+Good luck!
 
 ### Prerequisites
 
