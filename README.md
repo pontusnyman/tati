@@ -20,6 +20,11 @@
 
 This is a repo focused for automation engineers in this dark times when you cannot meet. Lets give the interviewee this repo to be able to show off some automation skills.
 
+<!-- CONTRIBUTING -->
+## Interviewee
+
+Clone this repo, create a branch, complete all tasks and open a Pull Request
+
 ## Getting Started
 
 Hi there,
@@ -46,18 +51,6 @@ npm install
 ```sh
 npm test
 ```
-
-<!-- CONTRIBUTING -->
-## Contributing
-
-Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-1. Fork the Project
-2. Create your Feature Branch 
-3. Commit your Changes 
-4. Push to the Branch 
-5. Open a Pull Request
-
 
 <!-- LICENSE -->
 ## License
