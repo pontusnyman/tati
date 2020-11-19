@@ -18,7 +18,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About tait
 
-This is a repo focused for automation engineers in this dark times when you cannot meet. Lets give the interviewee this repo to be able to show his/her automation skills.
+This is a repo focused for automation engineers in this dark times when you cannot meet. Lets give the interviewee this repo to be able to show off some automation skills.
 
 ## Getting Started
 
