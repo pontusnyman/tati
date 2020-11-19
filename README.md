@@ -10,7 +10,7 @@
   <p align="center">
     Test Automation Technical Interview
     <br />
-    <a href="#"><strong>Explore your skill »</strong></a>
+    <a href="https://github.com/pontusnyman/tati/blob/main/testscafe/test.spec.js"><strong>Explore your skill »</strong></a>
     <br />
   </p>
 </p>
