@@ -6,7 +6,7 @@ fixture`Lets go to SwagLabs and test`
     .page`https://www.saucedemo.com/`
 
 
-// Run it and correect this test
+// Run it and correct this test
 test('------------------------------ Check the title test', async t => {
     await t.expect(Selector('title').innerText).eql('Swag Labs')
     console.log("Title exists");
