@@ -23,7 +23,7 @@ This is a repo focused for automation engineers in this dark times when you cann
 <!-- CONTRIBUTING -->
 ## Interviewee
 
-Clone this repo, create a branch, complete all tasks and open a Pull Request
+Clone this repo, create a branch, complete all tasks and open a Pull Request - Should be solved under one hour
 
 ## Getting Started
 
