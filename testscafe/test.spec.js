@@ -160,12 +160,25 @@ Test Case
   4- Page redirect to 'Inventory.html' page, add item in cart
   5- Click on 'Shopping Cart' icon --> Page redirect to 'Cart' page
   6- Click on 'CheckOut' button, Page redirect then add credientials & click on 'Continue' Button
-  7- Page redirected, click on 'Finish' button 
-  8- click on 'menu' upper top left and logout
+  7- Page redirected, click on 'Finish' button and record page status
+  8- click on 'menu' upper top left and logout and record page staus
   9- Generate report
 */ 
 //----------------------------------------------------------------------------------------
 test('TEST-CASE-4--> "standard_user" buy a product & logout\n-----------------------------------------------------------------------------', async t =>  { 
+    await t
+    
+    const getRequestResult = ClientFunction(url => {
+      return new Promise(resolve => {
+          let xhr = new XMLHttpRequest();
+          xhr.open('GET', url);
+          xhr.onload = function () {
+              resolve(xhr.status);
+          };
+          xhr.send(null);
+      });
+    });
+    
     await t
     .typeText(userName, 'standard_user', {speed:0.1})
     .typeText(userPassword, 'secret_sauce', {speed:0.1})
@@ -178,18 +191,24 @@ test('TEST-CASE-4--> "standard_user" buy a product & logout\n-------------------
     .typeText(checkout_lastName, 'maqsood')
     .typeText(checkout_zip, '2860')
     .click(checkout_continoue)
-    .click(checkoutFinsh_btn)
+    .click(checkoutFinsh_btn)  
     const location = await getWindowLocation();
+    const checkoutPage_status = await getRequestResult(location.href);
     await t
     .wait(2000)
     .click(logOut_btn)
     .click(logout)
     .wait(2000);
+    const logoutPage_location = await getWindowLocation();
+    const logoutPage_status = await getRequestResult(logoutPage_location.href);
+    await t
     console.log("-----------------------------------------------------------------------------")
     console.log("TEST-CASE-4-->'standard_user' buy products & logout-->RESULT-->PASS")
     console.log("-----------------------------------------------------------------------------")
     console.log("Expected Result-->'standard_user' buy products & logout without problem '")
     console.log("Actual Result---> 'standard_user' sucessfully buy products & logout ")
+    console.log("Checkout page Status:", checkoutPage_status)
+    console.log("Logout page Status:", logoutPage_status)
     console.log("---------------------------PAGE INFO-----------------------------------------\n")
     console.log("href:",location.href,"\n", "Origin:",location.origin, "\n", "PathName:",location.pathname,"\n","Protocol:", location.protocol)
     console.log("-----------------------------------------------------------------------------")
@@ -199,6 +218,9 @@ test('TEST-CASE-4--> "standard_user" buy a product & logout\n-------------------
 
 
 //------TEST-CASE-5--> 'Use problem_user' & validate images are render properly-----------------------------------
+
+//Reference: Get help from this webiste 'https://javascriptio.com/view/972823/testcafe-check-for-images' to write this test 
+
 // BONUS: Use problem_user and see if all images render properly
 /*
 Test Case
@@ -225,7 +247,7 @@ test('TEST-CASE-5--> Use problem_user & validate images are render properly\n---
   console.log("TEST-CASE-5--> Use problem_user & validate images are render properly-->RESULT-->PASS")
   console.log("-------------------------------------------------------------------------------------")
      
-  //----------------clientfunction used to get status code------------------
+  //----------------client function used to get status code------------------
    let getRequestResult = ClientFunction(url => {
       return new Promise(resolve => {
           var xhr = new XMLHttpRequest();
