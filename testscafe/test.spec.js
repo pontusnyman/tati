@@ -5,11 +5,14 @@ import { Selector } from 'testcafe'
 fixture `Lets go to SwagLabs and test`
   .page `https://www.saucedemo.com/`
 
-
+//----------------------------------------------------------------------------------------
 // Run it and correect this test
 test('Check the title', async t => {
-  await t.expect(Selector('title').innerText).eql('hi')
+  await t
+  .expect(Selector('title').innerText).eql('Swag Labs')
 });
+//----------------------------------------------------------------------------------------
+
 
 // Use the locked_out_user and check if you get a error msg
 test.skip('', async t =>  {})
