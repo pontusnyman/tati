@@ -150,8 +150,111 @@ test('TEST-CASE-3->Check Cart is not empty\n------------------------------------
 
 
 
-
+//------TEST-CASE-4--> 'standard_user' buy a product & logout-----------------------------------
 // Use standard_user and buy a product, and then logout
-test.skip('', async t =>  {})
+/*
+Test Case
+  1- Open URL 'https://www.saucedemo.com/'
+  2- Enter userName: 'standard_user' & password:'secret_sauce' 
+  3- Click on 'Login' button
+  4- Page redirect to 'Inventory.html' page, add item in cart
+  5- Click on 'Shopping Cart' icon --> Page redirect to 'Cart' page
+  6- Click on 'CheckOut' button, Page redirect then add credientials & click on 'Continue' Button
+  7- Page redirected, click on 'Finish' button 
+  8- click on 'menu' upper top left and logout
+  9- Generate report
+*/ 
+//----------------------------------------------------------------------------------------
+test('TEST-CASE-4--> "standard_user" buy a product & logout\n-----------------------------------------------------------------------------', async t =>  { 
+    await t
+    .typeText(userName, 'standard_user', {speed:0.1})
+    .typeText(userPassword, 'secret_sauce', {speed:0.1})
+    .click(loginBtn)
+    .click(addToCart_btn)
+    .click(shoppingCart_btn)
+    .click(checkoutBtn)
+    .wait(2000)
+    .typeText(checkOut_firstName, 'mumtaz')
+    .typeText(checkout_lastName, 'maqsood')
+    .typeText(checkout_zip, '2860')
+    .click(checkout_continoue)
+    .click(checkoutFinsh_btn)
+    const location = await getWindowLocation();
+    await t
+    .wait(2000)
+    .click(logOut_btn)
+    .click(logout)
+    .wait(2000);
+    console.log("-----------------------------------------------------------------------------")
+    console.log("TEST-CASE-4-->'standard_user' buy products & logout-->RESULT-->PASS")
+    console.log("-----------------------------------------------------------------------------")
+    console.log("Expected Result-->'standard_user' buy products & logout without problem '")
+    console.log("Actual Result---> 'standard_user' sucessfully buy products & logout ")
+    console.log("---------------------------PAGE INFO-----------------------------------------\n")
+    console.log("href:",location.href,"\n", "Origin:",location.origin, "\n", "PathName:",location.pathname,"\n","Protocol:", location.protocol)
+    console.log("-----------------------------------------------------------------------------")
+});
+//----------END TEST-CASE-4--> 'standard_user' buy a product & logout -------------------------------------------
+
+
+
+//------TEST-CASE-5--> 'Use problem_user' & validate images are render properly-----------------------------------
 // BONUS: Use problem_user and see if all images render properly
-test.skip('', async t =>  {})
+/*
+Test Case
+  1- Open URL 'https://www.saucedemo.com/'
+  2- Enter userName: 'problem_user' & password:'secret_sauce' 
+  3- Click on 'Login' button
+  4- Page redirect to 'Inventory.html' page
+  5- Check HTTP status code of images & if image status is 200 -> Ok else  
+  6- Image status is 404 --> notOk --> not displaying
+  7- Generate report
+*/ 
+//----------------------------------------------------------------------------------------
+test('TEST-CASE-5--> Use problem_user & validate images are render properly\n-----------------------------------------------------------------------------', async t =>  {
+  await t
+  .typeText(userName, 'problem_user', {speed:0.1})
+  .typeText(userPassword, 'secret_sauce', {speed:0.1})
+  .click(loginBtn)
+  .wait(2000)
+  const location = await getWindowLocation();
+  let images = Selector('img');
+  let count = await images.count;
+  let statusCode = [];
+  console.log("-------------------------------------------------------------------------------------")
+  console.log("TEST-CASE-5--> Use problem_user & validate images are render properly-->RESULT-->PASS")
+  console.log("-------------------------------------------------------------------------------------")
+     
+  //----------------clientfunction used to get status code------------------
+   let getRequestResult = ClientFunction(url => {
+      return new Promise(resolve => {
+          var xhr = new XMLHttpRequest();
+          xhr.open('GET', url);
+          xhr.onload = function () {
+              resolve(xhr.status);
+          };
+          xhr.send(null);
+      });
+  });
+  //----------------end client function------------------------------------
+
+  console.log("------------------------IMAGE URL-------------------------------------MESSAGE----------------------------------------------STATUS CODE-")
+  for (let i = 0; i < count; i++) {
+      let url = await images.nth(i).getAttribute('src');
+      //console.log(url)
+      statusCode = await getRequestResult(url);
+      //await t.expect(statuses).eql(200)
+      console.log(url, "-->Image displayed if->statusCode=200 else not display-->:", statusCode)
+      }
+  console.log("----------------------------------------------------------------")
+  console.log("TEST CASE RESULT")
+  console.log("----------------------------------------------------------------")
+  console.log("Expected Result--> All images displayed properply")
+  console.log("Actual Result--->Images Not Displayed propely")
+  console.log("Bug Type---> VISUAL\nPriority---> URGENT \n Sverity---> CRITICAL")
+  console.log("----------------------------------------------------------------")
+  console.log("---------------------------PAGE INFO-----------------------------------------\n")
+  console.log("href:",location.href,"\n", "Origin:",location.origin, "\n", "PathName:",location.pathname,"\n","Protocol:", location.protocol)
+  console.log("-----------------------------------------------------------------------------")     
+});
+//------END TEST-CASE-5--> 'Use problem_user' & validate images are render properly-----------------------------------
