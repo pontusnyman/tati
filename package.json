@@ -19,5 +19,8 @@
   "homepage": "https://github.com/pontusnyman/tati#readme",
   "devDependencies": {
     "testcafe": "^1.9.4"
+  },
+  "dependencies": {
+    "testcafe-live": "^0.1.4"
   }
 }
