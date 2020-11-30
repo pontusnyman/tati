@@ -35,12 +35,12 @@ await t
 await t
 .click(Selector('button.btn_primary.btn_inventory').nth(1));
 //Check the cart if empty
-if(await t.expect(Selector('div.shopping_cart_container a.shopping_cart_link.fa-layers.fa-fw > span.fa-layers-counter.shopping_cart_badge').exists).ok)
+/*if(await t.expect(Selector('div.shopping_cart_container a.shopping_cart_link.fa-layers.fa-fw > span.fa-layers-counter.shopping_cart_badge').exists).ok)
 {
   console.log('The cart is not empty')
 } else{
   console.log('The cart is empty')
-};
+};*/
 await t.expect(Selector('div.shopping_cart_container a.shopping_cart_link.fa-layers.fa-fw > span.fa-layers-counter.shopping_cart_badge').exists).notOk('There should not be items in the cart.')
 
 //Log out
