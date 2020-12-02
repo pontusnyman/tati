@@ -118,7 +118,17 @@ test('TEST-CASE-3->Check Cart is not empty\n------------------------------------
   .typeText(userName, 'problem_user', {speed:0.1})
   .typeText(userPassword, 'secret_sauce', {speed:0.1})
   .click(loginBtn)
-  .click(addToCart_btn)
+  let countProduct = await addToCart_btn.count; //count products on inventory page
+  await t
+  //----------new code-----------------
+  for (let i = 0; i < countProduct-3; i++) { //it has 6 products 
+    let url = await addToCart_btn.nth(i); 
+    await t.click(addToCart_btn)
+  }
+  //---------------------------
+  console.log("CartButton on product page:"+ countProduct);
+  await t
+  //.click(addToCart_btn)
   .click(shoppingCart_btn)
   .click(checkoutBtn)
   .wait(2000)
@@ -168,7 +178,7 @@ Test Case
 test('TEST-CASE-4--> "standard_user" buy a product & logout\n-----------------------------------------------------------------------------', async t =>  { 
     await t
     
-    const getRequestResult = ClientFunction(url => {
+    /*const getRequestResult = ClientFunction(url => {
       return new Promise(resolve => {
           let xhr = new XMLHttpRequest();
           xhr.open('GET', url);
@@ -177,7 +187,18 @@ test('TEST-CASE-4--> "standard_user" buy a product & logout\n-------------------
           };
           xhr.send(null);
       });
+    });*/
+    //----------new code--------------------------------
+    let getRequestResult = ClientFunction(url => {
+      return fetch(url)
+      .then(function (response) {
+          return response.status
+      })
+      .catch(function (err) {
+          console.log("Something went wrong!", err);
+      });
     });
+    //--------------------------------------------------
     
     await t
     .typeText(userName, 'standard_user', {speed:0.1})
@@ -248,7 +269,7 @@ test('TEST-CASE-5--> Use problem_user & validate images are render properly\n---
   console.log("-------------------------------------------------------------------------------------")
      
   //----------------client function used to get status code------------------
-   let getRequestResult = ClientFunction(url => {
+  /* let getRequestResult = ClientFunction(url => {
       return new Promise(resolve => {
           var xhr = new XMLHttpRequest();
           xhr.open('GET', url);
@@ -257,7 +278,20 @@ test('TEST-CASE-5--> Use problem_user & validate images are render properly\n---
           };
           xhr.send(null);
       });
+  });*/
+  //-----------------new code--------------------------------
+  let getRequestResult = ClientFunction(url => {
+    return fetch(url)
+    .then(function (response) {
+        console.log(response);
+        return response.status
+    })
+    .catch(function (err) {
+        console.log("Something went wrong!", err);
+    });
   });
+
+  //---------------------------------------------------------
   //----------------end client function------------------------------------
 
   console.log("------------------------IMAGE URL-------------------------------------MESSAGE----------------------------------------------STATUS CODE-")
