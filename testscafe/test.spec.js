@@ -41,7 +41,7 @@ await t
 } else{
   console.log('The cart is empty')
 };*/
-await t.expect(Selector('div.shopping_cart_container a.shopping_cart_link.fa-layers.fa-fw > span.fa-layers-counter.shopping_cart_badge').exists).notOk('There should not be items in the cart.')
+await t.expect(Selector('div.shopping_cart_container a.shopping_cart_link.fa-layers.fa-fw > span.fa-layers-counter.shopping_cart_badge').exists).notOk('There should not be items in the cart when using the problem_user.')
 
 //Log out
 await t
