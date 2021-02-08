@@ -60,6 +60,6 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Pontus - pontan@gmail.com
+Pontus - pontus.nyman@neo4j.com
 
 Project Link: [https://github.com/pontusnyman/tati](https://github.com/pontusnyman/tati)
