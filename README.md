@@ -47,9 +47,14 @@ git clone https://github.com/pontusnyman/tati.git
 ```sh
 npm install
 ```
-4. Lets test
+4. Run test
 ```sh
 npm test
+```
+
+Optional eg.
+```sh
+npx testcafe chrome testcafe/test.spec.js -speed 0.5
 ```
 
 <!-- LICENSE -->
